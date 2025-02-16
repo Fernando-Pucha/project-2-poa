@@ -1,0 +1,113 @@
+/* .Navbar {
+    display: flex;
+    justify-content: space-between;
+    background: #303A63;
+    padding: 5px 20px;
+  }
+   
+  .Navbar li,
+  .Navbar a {
+    list-style: none;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 20px;
+    font-size: 1.2rem;
+    color: white;
+  }
+  .selected {
+    text-shadow: 1px 0px 3px white;
+    color: #fff;
+    border-bottom: rgba(255, 255, 255, 0.639) solid 2px;
+    padding-bottom: 5px;
+  } */
+
+/* Contenedor de la barra de navegación */
+
+body {
+  margin: 0;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #303A63;
+  padding: 15px 30px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo de la imagen/logo */
+.Navbar img {
+  width: 180px;
+  /* Ajusta el tamaño de la imagen según lo que necesites */
+  height: auto;
+}
+
+/* Estilo de la lista de enlaces */
+.Navbar ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo de los enlaces */
+.Navbar a,
+.Navbar .selected {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre los enlaces */
+.Navbar a:hover,
+.Navbar .selected {
+/*   background-color: #007bff; */
+  color: #fff;
+}
+
+/* Estilo para el enlace activo (cuando se selecciona) */
+.Navbar .selected {
+  background-color: #1B9A81;
+  /* Verde para resaltar */
+  font-weight: bold;
+}
+
+/* Estilos para los enlaces inactivos (sin selección) */
+.Navbar .NavLink {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Agregar un poco de espacio entre los enlaces */
+.Navbar a:not(.selected) {
+  margin-right: 15px;
+}
+
+/* Modo responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Navbar ul {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .Navbar a {
+    padding: 12px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .Navbar img {
+    margin-bottom: 20px;
+  }
+}
