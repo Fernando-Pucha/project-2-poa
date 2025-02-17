@@ -1,0 +1,28 @@
+.ProjectsPage {
+    text-align: center;
+    width: 100%;
+}
+
+.ProjectsPage h2 {
+    margin-bottom: 20px;
+    color: #303A63;
+}
+
+.Encabezado {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    width: 100%; 
+    justify-items: center; 
+    text-align: center; 
+    margin-top: 20px;
+    background-color: #1B9A81; 
+    padding: 10px 0; 
+}
+
+.Encabezado p {
+    margin: 0; 
+    font-size: 16px; 
+    font-weight: bold; 
+    color: white;
+}
