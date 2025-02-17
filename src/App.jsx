@@ -9,8 +9,8 @@ import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import DetailsProjectList from './components/DetailsProjectList/DetailsProjectList'
 import AddProject from './components/AddProject/AddProject'
 
-const apiURL = "http://localhost:5005/projects/";
-const FrontApiURL = "http://localhost:5173/projects/"
+const apiURL = "http://localhost:5005/projects"
+const FrontApiURL = "http://localhost:5173/projects"
 
 function App() {
   return (

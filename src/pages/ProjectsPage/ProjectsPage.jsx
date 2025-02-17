@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 export default function ProjectsPage({ apiURL, FrontApiURL }) {
     const [projects, setProjects] = useState([]);
-    const [counterIdProjects, setCounterIdProjects] = useState(projects.length + 1);
 
     useEffect(() => {
         axios

@@ -57,7 +57,7 @@ export default function AddProject() {
                     <option value="Media">Media</option>
                     <option value="Baja">Baja</option>
                 </select>
-                <textarea name="description" placeholder="Project Description" value={descripcion} onChange={handleDescripcionInput} required/>
+                <textarea name="description" placeholder="Project Description" value={descripcion} onChange={handleDescripcionInput} required />
             </div>
 
             <button type="submit">Submit</button>
