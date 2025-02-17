@@ -3,6 +3,7 @@
     padding: 20px;
     margin-top: 20px; 
     border-radius: 8px; 
+
 }
 
 .Project {
@@ -33,3 +34,9 @@
     margin: 5px 0;
 }
 
+
+.Projectsbuttons{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}

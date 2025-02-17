@@ -1,0 +1,64 @@
+/* Container principal para la lista de proyectos */
+.DetailsProjectList {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias filas si es necesario */
+    gap: 20px; /* Espacio entre columnas */
+  }
+  
+  /* Primera columna: DetailsProject */
+  .DetailsProject {
+    background-color: #28a745; /* Fondo verde */
+    color: white; /* Texto en blanco */
+    padding: 20px;
+    flex: 1; /* Ocupa el 50% de la fila */
+    border-radius: 8px; /* Bordes redondeados */
+    min-width: 250px; /* Mínimo de 250px de ancho */
+  }
+  
+  /* Estilo para el título dentro de DetailsProject */
+  .DetailsProject h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para los párrafos dentro de DetailsProject */
+  .DetailsProject p {
+    margin: 10px 0;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #f4f4f4; /* Color suave para los párrafos */
+  }
+  
+  /* Segunda columna: detalles de actividades */
+  .DetailsProjectActividad {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa; /* Fondo gris suave */
+    padding: 15px;
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para el título dentro de DetailsProjectActividad */
+  .DetailsProjectActividad h3 {
+    font-size: 1.2em;
+    color: #333; /* Títulos con color oscuro */
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para los párrafos dentro de DetailsProjectActividad */
+  .DetailsProjectActividad p {
+    margin: 8px 0;
+    font-size: 0.9em;
+    color: #666; /* Color más suave para los textos de actividad */
+    line-height: 1.5;
+  }
+  
+  /* Asegurar que las actividades estén bien alineadas en el contenedor */
+  .DetailsProjectActividad + .DetailsProjectActividad {
+    margin-top: 20px; /* Espacio entre actividades */
+  }
+  

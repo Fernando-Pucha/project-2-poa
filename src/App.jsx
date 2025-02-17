@@ -7,18 +7,21 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import DetailsProjectList from './components/DetailsProjectList/DetailsProjectList'
+import AddProject from './components/AddProject/AddProject'
+
+const apiURL = "http://localhost:5005/projects/";
+const FrontApiURL = "http://localhost:5173/projects/"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:projectId" element={<DetailsProjectList/>} />
+        <Route path="/projects" element={<ProjectsPage apiURL={apiURL} FrontApiURL={FrontApiURL} />} />
+        <Route path="/projects/:projectId" element={<DetailsProjectList apiURL={apiURL}/>} />
+        <Route path="/addProject" element={<AddProject/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

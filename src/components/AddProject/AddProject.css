@@ -1,0 +1,64 @@
+form {
+    max-width: 900px;
+    height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formAddProduct span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #303A63;
+    margin-bottom: 20px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  label {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0 5px;
+  }
+  
+  input, textarea, select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: #303A63;
+  }
+  
+  .formAddProduct button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #1B9A81;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    align-self: center;
+  }
+  
+  .formAddProduct button:hover {
+    background-color: #303A63;
+    transform: scale(1.05);
+  }
+  

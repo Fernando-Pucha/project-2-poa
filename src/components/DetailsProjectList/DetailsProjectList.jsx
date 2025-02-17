@@ -1,9 +1,9 @@
+import './DetailsProjectList.css'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-const apiURL = "http://localhost:5005/projects/";
 
-export default function DetailsProjectList() {
+export default function DetailsProjectList({ apiURL }) {
     const { projectId } = useParams();
 
     const [project, setProject] = useState({})
@@ -21,21 +21,30 @@ export default function DetailsProjectList() {
         <div className="DetailsProjectList">
             {
                 project && <>
-                    <div className="DetailsProject">
+                <div>
+                <div className="DetailsProject">
                         <h2>{project.titulo}</h2>
                         <p>{project.descripcion}</p>
                         <p>{project.estado}</p>
                         <p>{project.prioridad}</p>
                     </div>
+                    <button>Add Activity</button>
+                </div>
+                    
                     {
-                        project?.actividades?.map(actividad =>
-                            <article key={actividad.id} className='DetailsProjectActividad'>
+                        project?.actividades?.map(actividad => <div key={actividad.id} className='DetailsProjectActividades'>
+                            <article  className='DetailsProjectActividad'>
                                 <h3>{actividad.titulo}</h3>
-                                <p>{actividad.descripción}</p>
-                                <p>{actividad.fechaInicio}</p>
-                                <p>{actividad.fechaFin}</p>
-                                <p>{actividad.estado}</p>
+                                <p>{actividad.descripcion}</p>
+                                <p>Fecha Inicio: {actividad.fechaInicio}</p>
+                                <p>Fecha Fin: {actividad.fechaFin}</p>
+                                <p>Estado: {actividad.estado}</p>
                             </article>
+                            <div className='DetailsProjectButton'>
+                                <button /* onClick={() => buttonDelete(project.id)} */>Delete</button>
+                                <button /* onClick={() => buttonDelete(project.id)} */>Edit</button>
+                            </div>
+                        </div>
                         )
                     }
                 </>
