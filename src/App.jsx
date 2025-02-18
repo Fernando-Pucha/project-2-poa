@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage/HomePage'
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
 import DetailsProjectList from './components/DetailsProjectList/DetailsProjectList'
 import AddProject from './components/AddProject/AddProject'
+import AddActividad from './components/AddActividad/AddActividad'
 
 const apiURL = "http://localhost:5005/projects"
 const FrontApiURL = "http://localhost:5173/projects"
@@ -21,7 +22,8 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage apiURL={apiURL} FrontApiURL={FrontApiURL} />} />
         <Route path="/projects/:projectId" element={<DetailsProjectList apiURL={apiURL}/>} />
-        <Route path="/addProject" element={<AddProject/>} />
+        <Route path="/projects/addProject" element={<AddProject/>} />
+        <Route path="/projects/:projectId/addActividad" element={<AddActividad/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

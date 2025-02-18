@@ -16,10 +16,10 @@ export default function ProjectsPage({ apiURL, FrontApiURL }) {
 
     return (
         <div className='ProjectsPage'>
-            <div>
+            <div className="ProjectsPageTitulo">
                 <h2> Proyectos POA </h2>
-                <Link to="/addProject">
-                    <button>Agregar</button>
+                <Link to="/projects/addProject">
+                    <button className="btnAgregar">Añadir Proyectos</button>
                 </Link>
 
             </div>
@@ -29,6 +29,7 @@ export default function ProjectsPage({ apiURL, FrontApiURL }) {
                 <p>Fecha Fin</p>
                 <p>Responsable</p>
                 <p>Prioridad</p>
+                <p>Estado</p>
             </div>
             {projects.length > 0 ?
                 projects.map(project =>

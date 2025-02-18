@@ -1,25 +1,29 @@
 import './DetailsProjectList.css'
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 
 export default function DetailsProjectList({ apiURL }) {
     const { projectId } = useParams();
 
     const [project, setProject] = useState({})
-    
+
     const navigate = useNavigate();
 
-    useEffect(() => {
+    const getInitialProject = () => {
         axios
             .get(`${apiURL}/${projectId}?_embed=actividades`)
             .then(res => setProject(res.data))
             .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getInitialProject()
     }, [projectId])
 
     const deleteProject = () => {
-        const isConfirmed = window.confirm("¿Está seguro de eliminar el proyecto? \n Recuerda que al borrar un proyecto se borra todas las actividades")
+        const isConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este proyecto?  \n Ten en cuenta que al eliminarlo, también se eliminarán todas las actividades asociadas a él.")
 
         if (isConfirmed) {
             axios
@@ -31,41 +35,72 @@ export default function DetailsProjectList({ apiURL }) {
         }
     };
 
+    const deleteActividad = (actividadID) => {
+        const isConfirmed = window.confirm("¿Estás seguro de que deseas eliminar la actividad?")
+
+        if (isConfirmed) {
+            axios
+                .delete(`http://localhost:5005/actividades/${actividadID}`)
+                .then(() => {
+                    getInitialProject();
+                })
+                .catch((err) => console.log(err));
+        }
+    };
     return (
-        <div className="DetailsProjectList">
+        <div >
             {
                 project && <>
-                    <div>
-                        <div className="DetailsProject">
-                            <h2>{project.titulo}</h2>
-                            <p>{project.descripcion}</p>
-                            <p>{project.estado}</p>
-                            <p>{project.prioridad}</p>
-                        </div>
-                        <button>Add Activity</button>
-                        <button onClick={deleteProject}>Delete Project</button>
-                    <button >Edit Project</button>
-                    </div>
-
-                    {
-                        project?.actividades?.map(actividad => <div key={actividad.id} className='DetailsProjectActividades'>
-                            <article className='DetailsProjectActividad'>
-                                <h3>{actividad.titulo}</h3>
-                                <p>{actividad.descripcion}</p>
-                                <p>Fecha Inicio: {actividad.fechaInicio}</p>
-                                <p>Fecha Fin: {actividad.fechaFin}</p>
-                                <p>Estado: {actividad.estado}</p>
-                            </article>
+                    <div className='ContenedorProject'>
+                        <div className="DetailsProjectList">
+                            <div className="DetailsProject">
+                                <h2>{project.titulo}</h2>
+                                <p>{project.descripcion}</p>
+                                <p>Responsable: {project.responsable}</p>
+                                <div className='DetailsProjectFecha'>
+                                    <p>Fecha Inicio: {project.fechaInicio}</p>
+                                    <p>Fecha Fin: {project.fechaFin}</p>
+                                </div>
+                                <div className='DetailsProjectPE'>
+                                    <p>Prioridad: {project.prioridad}</p>
+                                    <p>Estado: {project.estado}</p>
+                                </div>
+                            </div>
                             <div className='DetailsProjectButton'>
-                                <button /* onClick={() => buttonDelete(project.id)} */>Delete</button>
-                                <button /* onClick={() => buttonDelete(project.id)} */>Edit</button>
+                                <button onClick={deleteProject}>Delete Project</button>
+                                <button >Edit Project</button>
                             </div>
                         </div>
-                        )
-                    }
+                    </div>
+
+                    <div className='EncabezadoActividades'>
+                        <h2>Actividades del Proyecto {projectId} </h2>
+                        <Link to={`/projects/${projectId}/addActividad`}>
+                            <button>Añadir Actividad</button>
+                        </Link>
+                    </div>
+                    <div className='ContenedorActividades'>
+                        {
+                            project?.actividades?.map(actividad =>
+                                <div key={actividad.id} className='DetailsProjectActividades'>
+                                    <article className='DetailsProjectActividad'>
+                                        <h3>{actividad.titulo}</h3>
+                                        <p>{actividad.descripcion}</p>
+                                        <p>Fecha Inicio: {actividad.fechaInicio}</p>
+                                        <p>Fecha Fin: {actividad.fechaFin}</p>
+                                        <p>Estado: {actividad.estado}</p>
+                                    </article>
+                                    <div className='DetailsActividadButton'>
+                                        <button onClick={() => deleteActividad(actividad.id)}>Delete</button>
+                                        <button>Edit</button>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+
                 </>
             }
-
         </div>
     )
 

@@ -11,9 +11,10 @@ export default function ProjectsList({ FrontApiURL, project }) {
                 <p>{project.fechaFin}</p>
                 <p>{project.responsable}</p>
                 <p>{project.prioridad}</p>
+                <p>{project.estado}</p>
                 <div className='Projectsbuttons'>
                     <Link to={`${FrontApiURL}/${project.id}`} style={{ textDecoration: 'none' }}>
-                        <button>+ Detalles</button>
+                        <button className='ProjectsButtonDetalles'>+ Detalles</button>
                     </Link>
                 </div>
             </article>

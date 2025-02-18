@@ -1,64 +1,175 @@
-/* Container principal para la lista de proyectos */
+.ContenedorProject{
+    background-color: #1B9A81;
+    padding: 10px;
+    width: 90%;
+    margin: 1em auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
 .DetailsProjectList {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias filas si es necesario */
-    gap: 20px; /* Espacio entre columnas */
-  }
-  
-  /* Primera columna: DetailsProject */
-  .DetailsProject {
-    background-color: #28a745; /* Fondo verde */
-    color: white; /* Texto en blanco */
+    background-color: #ffffff;
     padding: 20px;
-    flex: 1; /* Ocupa el 50% de la fila */
-    border-radius: 8px; /* Bordes redondeados */
-    min-width: 250px; /* Mínimo de 250px de ancho */
-  }
-  
-  /* Estilo para el título dentro de DetailsProject */
-  .DetailsProject h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-  }
-  
-  /* Estilo para los párrafos dentro de DetailsProject */
-  .DetailsProject p {
-    margin: 10px 0;
-    font-size: 1em;
-    line-height: 1.6;
-    color: #f4f4f4; /* Color suave para los párrafos */
-  }
-  
-  /* Segunda columna: detalles de actividades */
-  .DetailsProjectActividad {
+    border-radius: 12px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: auto;
+}
+
+.DetailsProject {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: #f8f9fa; /* Fondo gris suave */
+    justify-content: space-between;
+}
+
+.DetailsProject h2 {
+    font-size: 28px;
+    color: #303a63;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.DetailsProject p {
+    font-size: 16px;
+    color: #555;
+    margin: 1px 0;
+}
+
+.DetailsProjectFecha,
+.DetailsProjectPE {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.DetailsProjectFecha p,
+.DetailsProjectPE p {
+    font-size: 14px;
+    color: #888;
+}
+
+.DetailsProjectButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 130px;
+    height: 100%;
+    margin-top: 35px;
+}
+
+.DetailsProjectButton button {
+    background-color: #1B9A81;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    width: 100%;
+    max-width: 160px;
+}
+
+.DetailsProjectButton button:hover {
+    background-color: #28a745;
+    transform: translateY(-3px);
+}
+
+.EncabezadoActividades {
+    text-align: center;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.EncabezadoActividades h2 {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+    color: #303a63;
+}
+
+.EncabezadoActividades button {
+    background-color: #1B9A81;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    margin-left: auto;
+
+}
+
+.EncabezadoActividades button:hover {
+    background-color: #28a745;
+    transform: scale(1.05);
+}
+
+.ContenedorActividades {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.DetailsProjectActividades {
+    background-color: #303a63;
     padding: 15px;
-    border: 1px solid #ddd; /* Borde sutil */
     border-radius: 8px;
-    flex: 1;
-    min-width: 250px;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+.DetailsProjectActividad {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 400px;
+
+}
+
+
+.DetailsActividadButton {
+    display: flex;
+    justify-content: space-between;
     margin-top: 10px;
-  }
-  
-  /* Estilo para el título dentro de DetailsProjectActividad */
-  .DetailsProjectActividad h3 {
-    font-size: 1.2em;
-    color: #333; /* Títulos con color oscuro */
-    margin-bottom: 10px;
-  }
-  
-  /* Estilo para los párrafos dentro de DetailsProjectActividad */
-  .DetailsProjectActividad p {
-    margin: 8px 0;
-    font-size: 0.9em;
-    color: #666; /* Color más suave para los textos de actividad */
-    line-height: 1.5;
-  }
-  
-  /* Asegurar que las actividades estén bien alineadas en el contenedor */
-  .DetailsProjectActividad + .DetailsProjectActividad {
-    margin-top: 20px; /* Espacio entre actividades */
-  }
-  
+}
+.DetailsActividadButton button {
+    background-color: #1B9A81;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    width: 100%;
+    max-width: 70px;
+}
+
+.DetailsActividadButton button:hover {
+    background-color: #28a745;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .DetailsProjectActividad {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .DetailsProjectActividad {
+        flex: 1 1 100%;
+    }
+}
