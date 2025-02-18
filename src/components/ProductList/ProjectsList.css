@@ -1,6 +1,6 @@
 .ProjectsList {
     background-color: #f0f0f0;
-    padding: 15px;
+    padding: 8px;
     margin-top: 10px;
     border-radius: 8px;
 }
@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     background-color: white;
-    padding: 20px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;

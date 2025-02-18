@@ -1,6 +1,7 @@
 .ProjectsPage {
     text-align: center;
     width: 100%;
+
 }
 
 .ProjectsPageTitulo {
@@ -38,7 +39,6 @@
 .Encabezado {
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
-    gap: 20px; 
     width: 100%; 
     justify-items: center; 
     text-align: center; 

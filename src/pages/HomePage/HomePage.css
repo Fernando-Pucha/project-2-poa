@@ -1,0 +1,62 @@
+/* General Container */
+.container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Card */
+.card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flex Container for the two columns */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin-left: 100px;
+}
+
+/* Column styling for both sections */
+.column {
+    width: 48%;
+    margin: auto;
+}
+
+/* Title styles */
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Subtitle styles */
+.subtitle {
+    font-size: 1.125rem;
+    font-weight: semi-bold;
+    margin-bottom: 12px;
+}
+
+/* PieChart container (centering charts) */
+.PieChart {
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+}
