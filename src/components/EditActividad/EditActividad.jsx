@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005/actividades";
 
-function EditActividad() {
+export default function EditActividad() {
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [fechaInicio, setFechaInicio] = useState('');
@@ -22,7 +22,7 @@ function EditActividad() {
 
     useEffect(() => {
         axios
-            .get(`${API_URL}/${actividadId}`)  /* http://localhost:5005/actividades/25 */
+            .get(`${API_URL}/${actividadId}`)
             .then((response) => {
                 const oneActividad = response.data;
                 setTitulo(oneActividad.titulo);
@@ -53,7 +53,7 @@ function EditActividad() {
                 <select name="Estatus" value={estado} onChange={handleEstadoInput} required>
                     <option value="" disabled>Estado</option>
                     <option value="Pendiente">Pendiente</option>
-                    <option value="En-Proceso">En Proceso</option>
+                    <option value="En Proceso">En Proceso</option>
                     <option value="Terminado">Terminado</option>
                 </select>
                 <textarea name="description" placeholder="Project Description" value={descripcion} onChange={handleDescripcionInput} required />
@@ -64,5 +64,3 @@ function EditActividad() {
         </form>
     );
 }
-
-export default EditActividad;

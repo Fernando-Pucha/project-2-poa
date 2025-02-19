@@ -137,12 +137,12 @@
 
 }
 
-
 .DetailsActividadButton {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
 }
+
 .DetailsActividadButton button {
     background-color: #1B9A81;
     color: white;

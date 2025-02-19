@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005/projects";
 
-function EditProject() {
+export default function EditProject() {
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [fechaInicio, setFechaInicio] = useState('');
@@ -81,5 +81,3 @@ function EditProject() {
         </form>
     );
 }
-
-export default EditProject;

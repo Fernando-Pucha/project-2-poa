@@ -9,6 +9,7 @@ const Card = ({ children }) => (
 const CardContent = ({ children, className }) => <div className={className}>{children}</div>;
 
 const apiURL = "http://localhost:5005/projects"
+const apiActividadesURL = "http://localhost:5005/actividades"
 
 export default function HomePage() {
 
@@ -16,9 +17,14 @@ export default function HomePage() {
     const [projectAlta, setProjectAlta] = useState(0);
     const [projectsMedia, setProjectsMedia] = useState(0);
     const [projectsBaja, setProjectsBaja] = useState(0);
-    const [projectPendiente, setProjectPendiente] = useState(0);
+    const [projectPendiente, setProjectsPendiente] = useState(0);
     const [projectsEnProceso, setProjectsEnProceso] = useState(0);
     const [projectsTerminado, setProjectsTerminado] = useState(0);
+
+    const [actividades, setActividades] = useState([]);
+    const [actividadesPendiente, setActividadesPendiente] = useState(0);
+    const [actividadesEnProceso, setActividadesEnProceso] = useState(0);
+    const [actividadesTerminado, setActividadesTerminado] = useState(0);
 
     const countProject = (projectCount) => {
         projectCount.forEach(project => {
@@ -31,11 +37,11 @@ export default function HomePage() {
             }
 
             if (project.estado === "Pendiente") {
-                setProjectPendiente(preprojectPendiente => preprojectPendiente + 1)
+                setProjectsPendiente(preprojectPendiente => preprojectPendiente + 1)
             } else if (project.estado === "En Proceso") {
                 setProjectsEnProceso(preprojectEnProceso => preprojectEnProceso + 1)
             } else if (project.estado === "Terminado") {
-                setProjectsTerminado(preprojectTerminado => preprojectTerminado + 1)
+                setActividadesTerminado(preprojectTerminado => preprojectTerminado + 1)
             }
         })
     }
@@ -50,6 +56,29 @@ export default function HomePage() {
             .catch(err => console.log(err))
     }, [])
 
+    const countActividades = (actividadesCount) => {
+        actividadesCount.forEach(actividad => {
+            if (actividad.estado === "Pendiente") {
+                setActividadesPendiente(preprojectAlta => preprojectAlta + 1)
+            } else if (actividad.estado === "En Proceso") {
+                setActividadesEnProceso(preprojectMedia => preprojectMedia + 1)
+            } else if (actividad.estado === "Terminado") {
+                setProjectsBaja(preprojectBaja => preprojectBaja + 1)
+            }
+        })
+    }
+
+    useEffect(() => {
+        axios
+            .get(apiActividadesURL)
+            .then(res => {
+                setActividades(res.data)
+                countActividades(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+
     const data = {
         proyectos: [
             { prioridad: "Alta", cantidad: projectAlta },
@@ -62,9 +91,9 @@ export default function HomePage() {
             { estado: "Terminado", cantidad: projectsTerminado },
         ],
         actividades: [
-            { estado: "Pendiente", cantidad: 6 },
-            { estado: "En Proceso", cantidad: 4 },
-            { estado: "Terminado", cantidad: 5 },
+            { estado: "Pendiente", cantidad: actividadesPendiente },
+            { estado: "En Proceso", cantidad: actividadesEnProceso },
+            { estado: "Terminado", cantidad: actividadesTerminado },
         ],
     };
 
@@ -104,7 +133,7 @@ export default function HomePage() {
 
                     <CardContent className="column">
                         <h2 className="title">Resumen de Actividades</h2>
-                        <p>Actividades: {data.actividades.reduce((acc, a) => acc + a.cantidad, 0)}</p>
+                        <p>Actividades: {actividades.length}</p>
                         <h2 className="subtitle">Actividades por estado</h2>
                         <PieChart width={400} height={300}>
                             <Pie

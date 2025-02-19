@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 
-export default function DetailsProjectList({ apiURL }) {
-    const { projectId } = useParams();
+const apiURL = "http://localhost:5005/projects"
 
+export default function DetailsProjectList() {
+    
+    const { projectId } = useParams();
     const [project, setProject] = useState({})
 
     const navigate = useNavigate();
@@ -82,6 +84,7 @@ export default function DetailsProjectList({ apiURL }) {
                             <button>Añadir Actividad</button>
                         </Link>
                     </div>
+
                     <div className='ContenedorActividades'>
                         {
                             project?.actividades?.map(actividad =>
@@ -98,7 +101,6 @@ export default function DetailsProjectList({ apiURL }) {
                                         <Link to={`/projects/${projectId}/editActividad/${actividad.id}`}>
                                             <button>Edit</button>
                                         </Link>
-
                                     </div>
                                 </div>
                             )
@@ -109,5 +111,4 @@ export default function DetailsProjectList({ apiURL }) {
             }
         </div>
     )
-
 }

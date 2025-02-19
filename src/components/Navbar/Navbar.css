@@ -9,14 +9,11 @@
   font-family: Arial, sans-serif;
 }
 
-/* Estilo de la imagen/logo */
 .Navbar img {
   width: 180px;
-  /* Ajusta el tamaño de la imagen según lo que necesites */
   height: auto;
 }
 
-/* Estilo de la lista de enlaces */
 .Navbar ul {
   display: flex;
   list-style-type: none;
@@ -24,7 +21,6 @@
   padding: 0;
 }
 
-/* Estilo de los enlaces */
 .Navbar a,
 .Navbar .selected {
   color: white;
@@ -35,7 +31,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Efecto al pasar el mouse sobre los enlaces */
 .Navbar a:hover,
 .Navbar .selected {
   color: #fff;
@@ -55,7 +50,6 @@
   margin-right: 15px;
 }
 
-/* Modo responsive para pantallas pequeñas */
 @media (max-width: 768px) {
   .Navbar {
     flex-direction: column;

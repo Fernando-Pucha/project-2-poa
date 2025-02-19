@@ -1,7 +1,7 @@
 import './Navbar.css'
 import { Link, NavLink } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
     return (
         <nav className="Navbar">
             <img src="https://uei.edu.ec/wp-content/smush-webp/2024/08/LogoUebi.png.webp" alt="" />
@@ -19,5 +19,3 @@ function Navbar() {
         </nav>
     );
 }
-
-export default Navbar;

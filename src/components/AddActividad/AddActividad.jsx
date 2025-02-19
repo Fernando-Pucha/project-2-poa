@@ -4,8 +4,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005/actividades";
 
-
-function AddActividad() {
+export default function AddActividad() {
     let navigate = useNavigate();
     const { projectId } = useParams();
 
@@ -38,7 +37,7 @@ function AddActividad() {
                 <select name="Estatus" value={estado} onChange={handleEstadoInput} required>
                     <option value="" disabled>Estado</option>
                     <option value="Pendiente">Pendiente</option>
-                    <option value="En-Proceso">En Proceso</option>
+                    <option value="En Proceso">En Proceso</option>
                     <option value="Terminado">Terminado</option>
                 </select>
                 <textarea name="description" placeholder="Project Description" value={descripcion} onChange={handleDescripcionInput} required />
@@ -49,5 +48,3 @@ function AddActividad() {
         </form>
     );
 }
-
-export default AddActividad;

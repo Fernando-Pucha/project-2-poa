@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-export default function ProjectsPage({ apiURL, FrontApiURL }) {
+const apiURL = "http://localhost:5005/projects"
+const FrontApiURL = "http://localhost:5173/projects"
+
+export default function ProjectsPage() {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -21,7 +24,6 @@ export default function ProjectsPage({ apiURL, FrontApiURL }) {
                 <Link to="/projects/addProject">
                     <button className="btnAgregar">Añadir Proyectos</button>
                 </Link>
-
             </div>
             <div className='Encabezado'>
                 <p>Name</p>

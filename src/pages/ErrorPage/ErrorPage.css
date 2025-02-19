@@ -1,4 +1,3 @@
-/* Contenedor principal de la página de error */
 .error-container {
     display: flex;
     flex-direction: column;
@@ -8,7 +7,6 @@
     padding: 20px;
 }
 
-/* Estilo de la imagen */
 .error-container img {
     width: 300px;
     height: auto;
@@ -16,7 +14,6 @@
     animation: fadeIn 1.5s ease-out;
 }
 
-/* Estilo del título */
 .error-container h1 {
     font-size: 2.5rem;
     color: #1B9A81;
@@ -25,7 +22,6 @@
     animation: fadeIn 1.5s ease-out;
 }
 
-/* Estilo del mensaje de error */
 .error-container p {
     font-size: 2.2rem;
     color: #6c757d;
@@ -33,7 +29,6 @@
     animation: fadeIn 1.5s ease-out;
 }
 
-/* Estilo del botón */
 .error-container button {
     background-color:#303A63;
     color: white;
@@ -45,13 +40,11 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Efecto al pasar el mouse sobre el botón */
 .error-container button:hover {
     background-color:#1B9A81;
     transform: scale(1.05);
 }
 
-/* Animación de aparición */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -63,7 +56,6 @@
     }
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
     .error-container {
         padding: 10px;

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import AboutPage from './pages/AboutPage/AboutPage'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
@@ -11,9 +10,7 @@ import AddProject from './components/AddProject/AddProject'
 import AddActividad from './components/AddActividad/AddActividad'
 import EditProject from './components/EditProject/EditProject'
 import EditActividad from './components/EditActividad/EditActividad'
-
-const apiURL = "http://localhost:5005/projects"
-const FrontApiURL = "http://localhost:5173/projects"
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -22,14 +19,15 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage apiURL={apiURL} FrontApiURL={FrontApiURL} />} />
-        <Route path="/projects/:projectId" element={<DetailsProjectList apiURL={apiURL}/>} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:projectId" element={<DetailsProjectList />} />
         <Route path="/projects/addProject" element={<AddProject/>} />
         <Route path="/projects/:projectId/addActividad" element={<AddActividad/>} />
         <Route path="/projects/:projectId/editProject" element={<EditProject/>} />
         <Route path="/projects/:projectId/editActividad/:actividadId" element={<EditActividad/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer/>
     </div>
   )
 }
