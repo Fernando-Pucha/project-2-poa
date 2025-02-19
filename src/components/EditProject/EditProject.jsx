@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005/projects";
+const API_URL = `${import.meta.env.VITE_BACK_URL}/projects`;
 
 export default function EditProject() {
     const [titulo, setTitulo] = useState('');
@@ -43,7 +43,7 @@ export default function EditProject() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        const requestBody = { titulo, descripcion, fechaInicio, fechaFin, responsable, estado, prioridad };;
+        const requestBody = { titulo, descripcion, fechaInicio, fechaFin, responsable, estado, prioridad };
 
         axios
             .put(`${API_URL}/${projectId}`, requestBody)

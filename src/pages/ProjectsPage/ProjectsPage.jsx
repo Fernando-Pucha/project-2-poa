@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-const apiURL = "http://localhost:5005/projects"
-const FrontApiURL = "http://localhost:5173/projects"
+const apiURL = `${import.meta.env.VITE_BACK_URL}/projects`
+const FrontApiURL = `${import.meta.env.VITE_FRONT_URL}/projects`
 
 export default function ProjectsPage() {
     const [projects, setProjects] = useState([]);

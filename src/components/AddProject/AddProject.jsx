@@ -3,7 +3,7 @@ import './AddProject.css'
 import { useState } from "react";
 import axios from 'axios';
 
-const apiURL = "http://localhost:5005/projects/";
+const apiURL = `${import.meta.env.VITE_BACK_URL}/projects`
 
 export default function AddProject() {
 

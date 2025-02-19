@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5005/actividades";
+const API_URL = `${import.meta.env.VITE_BACK_URL}/actividades`;
 
 export default function EditActividad() {
     const [titulo, setTitulo] = useState('');

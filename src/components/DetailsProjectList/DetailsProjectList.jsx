@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 
-const apiURL = "http://localhost:5005/projects"
+const apiURL = `${import.meta.env.VITE_BACK_URL}/projects`
+const apiURL_Actividades = `${import.meta.env.VITE_BACK_URL}/actividades`
 
 export default function DetailsProjectList() {
     
@@ -42,7 +43,7 @@ export default function DetailsProjectList() {
 
         if (isConfirmed) {
             axios
-                .delete(`http://localhost:5005/actividades/${actividadID}`)
+                .delete(`${apiURL_Actividades}${actividadID}`)
                 .then(() => {
                     getInitialProject();
                 })

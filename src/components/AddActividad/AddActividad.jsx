@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005/actividades";
+const API_URL = `${import.meta.env.VITE_BACK_URL}/actividades`;
 
 export default function AddActividad() {
     let navigate = useNavigate();
