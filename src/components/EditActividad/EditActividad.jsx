@@ -36,11 +36,12 @@ export default function EditActividad() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const requestBody = {projectId:Number(projectId), titulo, descripcion, fechaInicio, fechaFin, estado };
+        const requestBody = { projectId: Number(projectId), titulo, descripcion, fechaInicio, fechaFin, estado };
 
-        axios.put(`${API_URL}/${actividadId}`, requestBody).then(() => {
-            navigate(`/projects/${projectId}`);
-        });
+        axios
+            .put(`${API_URL}/${actividadId}`, requestBody)
+            .then(() => {navigate(`/projects/${projectId}`)})
+            .catch((error) => console.log(error));
     };
 
     return (

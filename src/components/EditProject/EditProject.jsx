@@ -42,15 +42,13 @@ export default function EditProject() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // Create an object representing the body of the PUT request
-        const requestBody = {titulo, descripcion, fechaInicio, fechaFin, responsable, estado, prioridad };;
 
-        // Make a PUT request to the API update the project
-        axios.put(`${API_URL}/${projectId}`, requestBody).then(() => {
-            // Once the request is resolved successfully and the project
-            // is updated we navigate back to the Project Details page (client-side)
-            navigate(`/projects/${projectId}`);
-        });
+        const requestBody = { titulo, descripcion, fechaInicio, fechaFin, responsable, estado, prioridad };;
+
+        axios
+            .put(`${API_URL}/${projectId}`, requestBody)
+            .then(() => {navigate(`/projects/${projectId}`)})
+            .catch((error) => console.log(error));
     };
 
     return (
