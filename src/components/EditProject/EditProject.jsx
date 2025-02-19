@@ -1,14 +1,10 @@
-import { useNavigate } from "react-router";
-import './AddProject.css'
-import { useState } from "react";
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
-const apiURL = "http://localhost:5005/projects/";
+const API_URL = "http://localhost:5005/projects";
 
-export default function AddProject() {
-
-    let navigate = useNavigate();
-
+function EditProject() {
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [fechaInicio, setFechaInicio] = useState('');
@@ -25,18 +21,40 @@ export default function AddProject() {
     const handleEstadoInput = e => setEstado(e.target.value);
     const handlePrioridadInput = e => setPrioridad(e.target.value);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newProject = {titulo, descripcion, fechaInicio, fechaFin, responsable, estado, prioridad };
+    const { projectId } = useParams();
+    const navigate = useNavigate();
 
+    useEffect(() => {
         axios
-            .post(apiURL, newProject)
-            .then(res => navigate("/projects"))
-            .catch(err => console.log(err))
-    }
+            .get(`${API_URL}/${projectId}`)
+            .then((response) => {
+                const oneProject = response.data;
+                setTitulo(oneProject.titulo);
+                setDescripcion(oneProject.descripcion);
+                setFechaInicio(oneProject.fechaInicio);
+                setFechaFin(oneProject.fechaFin);
+                setResponsable(oneProject.responsable);
+                setEstado(oneProject.estado);
+                setPrioridad(oneProject.prioridad);
+            })
+            .catch((error) => console.log(error));
+    }, [projectId]);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        // Create an object representing the body of the PUT request
+        const requestBody = {titulo, descripcion, fechaInicio, fechaFin, responsable, estado, prioridad };;
+
+        // Make a PUT request to the API update the project
+        axios.put(`${API_URL}/${projectId}`, requestBody).then(() => {
+            // Once the request is resolved successfully and the project
+            // is updated we navigate back to the Project Details page (client-side)
+            navigate(`/projects/${projectId}`);
+        });
+    };
 
     return (
-        <form className="formAddProduct" onSubmit={handleSubmit}>
+        <form className="formAddProduct" onSubmit={handleFormSubmit}>
             <span>Add a Project</span>
             <div className="form-grid">
                 <input name="name" type="text" placeholder="Project Name" value={titulo} onChange={handleTituloInput} required />
@@ -63,3 +81,5 @@ export default function AddProject() {
         </form>
     );
 }
+
+export default EditProject;

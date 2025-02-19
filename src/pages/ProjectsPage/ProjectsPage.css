@@ -1,16 +1,13 @@
 .ProjectsPage {
     text-align: center;
     width: 100%;
-
 }
 
 .ProjectsPageTitulo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 10px;
-
 }
 .ProjectsPageTitulo h2 {
     margin: 0;

@@ -1,14 +1,11 @@
-import { useState } from "react";
-import { useNavigate, useParams } from "react-router";
+
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:5005/actividades";
 
-
-function AddActividad() {
-    let navigate = useNavigate();
-    const { projectId } = useParams();
-
+function EditActividad() {
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [fechaInicio, setFechaInicio] = useState('');
@@ -20,17 +17,35 @@ function AddActividad() {
     const handleFechaFinInput = e => setFechaFin(e.target.value);
     const handleEstadoInput = e => setEstado(e.target.value);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newActividad = {projectId:Number(projectId), titulo, descripcion, fechaInicio, fechaFin, estado };
+    const { projectId, actividadId } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
         axios
-            .post(API_URL, newActividad)
-            .then(res => navigate(`/projects/${projectId}`))
+            .get(`${API_URL}/${actividadId}`)  /* http://localhost:5005/actividades/25 */
+            .then((response) => {
+                const oneActividad = response.data;
+                setTitulo(oneActividad.titulo);
+                setDescripcion(oneActividad.descripcion);
+                setFechaInicio(oneActividad.fechaInicio);
+                setFechaFin(oneActividad.fechaFin);
+                setEstado(oneActividad.estado);
+            })
             .catch((error) => console.log(error));
+    }, [actividadId]);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const requestBody = {projectId:Number(projectId), titulo, descripcion, fechaInicio, fechaFin, estado };
+
+        axios.put(`${API_URL}/${actividadId}`, requestBody).then(() => {
+            navigate(`/projects/${projectId}`);
+        });
     };
+
     return (
-        <form className="formAddProduct" onSubmit={handleSubmit}>
-            <span>Add Activity</span>
+        <form className="formAddProduct" onSubmit={handleFormSubmit}>
+            <span>Edit Activity</span>
             <div className="form-grid">
                 <input name="name" type="text" placeholder="Activity Name" value={titulo} onChange={handleTituloInput} required />
                 <input name="StarDate" type="date" placeholder="Start Date" value={fechaInicio} onChange={handleFechaInicioInput} required />
@@ -50,4 +65,4 @@ function AddActividad() {
     );
 }
 
-export default AddActividad;
+export default EditActividad;

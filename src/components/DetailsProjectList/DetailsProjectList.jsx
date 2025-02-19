@@ -68,7 +68,10 @@ export default function DetailsProjectList({ apiURL }) {
                             </div>
                             <div className='DetailsProjectButton'>
                                 <button onClick={deleteProject}>Delete Project</button>
-                                <button >Edit Project</button>
+                                <Link to={`/projects/${projectId}/editProject`}>
+                                    <button>Edit Project</button>
+                                </Link>
+
                             </div>
                         </div>
                     </div>
@@ -92,7 +95,10 @@ export default function DetailsProjectList({ apiURL }) {
                                     </article>
                                     <div className='DetailsActividadButton'>
                                         <button onClick={() => deleteActividad(actividad.id)}>Delete</button>
-                                        <button>Edit</button>
+                                        <Link to={`/projects/${projectId}/editActividad/${actividad.id}`}>
+                                            <button>Edit</button>
+                                        </Link>
+
                                     </div>
                                 </div>
                             )
