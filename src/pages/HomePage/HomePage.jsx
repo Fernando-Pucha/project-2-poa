@@ -8,8 +8,8 @@ const Card = ({ children }) => (
 );
 const CardContent = ({ children, className }) => <div className={className}>{children}</div>;
 
-const apiURL = "http://localhost:5005/projects"
-const apiActividadesURL = "http://localhost:5005/actividades"
+const apiURL = `${import.meta.env.VITE_BACK_URL}/projects`
+const apiActividadesURL = `${import.meta.env.VITE_BACK_URL}/actividades`
 
 export default function HomePage() {
 
@@ -41,7 +41,7 @@ export default function HomePage() {
             } else if (project.estado === "En Proceso") {
                 setProjectsEnProceso(preprojectEnProceso => preprojectEnProceso + 1)
             } else if (project.estado === "Terminado") {
-                setActividadesTerminado(preprojectTerminado => preprojectTerminado + 1)
+                setProjectsTerminado(preprojectTerminado => preprojectTerminado + 1)
             }
         })
     }
@@ -63,7 +63,7 @@ export default function HomePage() {
             } else if (actividad.estado === "En Proceso") {
                 setActividadesEnProceso(preprojectMedia => preprojectMedia + 1)
             } else if (actividad.estado === "Terminado") {
-                setProjectsBaja(preprojectBaja => preprojectBaja + 1)
+                setActividadesTerminado(preprojectBaja => preprojectBaja + 1)
             }
         })
     }

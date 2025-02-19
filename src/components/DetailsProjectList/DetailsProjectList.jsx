@@ -43,7 +43,7 @@ export default function DetailsProjectList() {
 
         if (isConfirmed) {
             axios
-                .delete(`${apiURL_Actividades}${actividadID}`)
+                .delete(`${apiURL_Actividades}/${actividadID}`)
                 .then(() => {
                     getInitialProject();
                 })
