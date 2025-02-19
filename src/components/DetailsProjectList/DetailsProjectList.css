@@ -121,7 +121,7 @@
 
 .DetailsProjectActividades {
     background-color: #303a63;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     justify-content: space-between;
     gap: 15px;
@@ -140,7 +140,7 @@
 .DetailsActividadButton {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .DetailsActividadButton button {

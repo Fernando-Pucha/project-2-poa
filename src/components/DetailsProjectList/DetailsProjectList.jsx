@@ -70,7 +70,7 @@ export default function DetailsProjectList() {
                             </div>
                             <div className='DetailsProjectButton'>
                                 <button onClick={deleteProject}>Delete Project</button>
-                                <Link to={`/projects/${projectId}/editProject`}>
+                                <Link to={`/projects/editProject/${projectId}`}>
                                     <button>Edit Project</button>
                                 </Link>
 

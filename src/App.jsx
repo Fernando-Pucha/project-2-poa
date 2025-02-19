@@ -23,7 +23,7 @@ function App() {
         <Route path="/projects/:projectId" element={<DetailsProjectList />} />
         <Route path="/projects/addProject" element={<AddProject/>} />
         <Route path="/projects/:projectId/addActividad" element={<AddActividad/>} />
-        <Route path="/projects/:projectId/editProject" element={<EditProject/>} />
+        <Route path="/projects/editProject/:projectId" element={<EditProject/>} />
         <Route path="/projects/:projectId/editActividad/:actividadId" element={<EditActividad/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

@@ -2,9 +2,9 @@
     background-color: #303A63;  
     text-align: center;
     padding: 10px;
-/*     position: fixed; */
+    position: fixed;
     bottom: 0;
-/*     width: 100%; */
+    width: 100%;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -12,7 +12,6 @@
   .footer a {
     color: white; 
     font-size: 15px; 
- /*    font-weight: 600;  */
     text-decoration: none; 
     transition: all 0.3s ease; 
   }

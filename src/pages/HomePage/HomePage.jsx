@@ -105,10 +105,10 @@ export default function HomePage() {
                 <div className="flex-container">
                     <CardContent className="column">
                         <h2 className="title">Resumen de Proyectos</h2>
-                        <p>Proyectos: {projects.length}</p>
-                        <p>Pendientes: {projectPendiente}</p>
-                        <p>En proceso: {projectsEnProceso}</p>
-                        <p>Terminado: {projectsTerminado}</p>
+                        <p>Total Proyectos: {projects.length}</p>
+                        <p>Proyectos Pendientes: {projectPendiente}</p>
+                        <p>Proyectos en Proceso: {projectsEnProceso}</p>
+                        <p>Proyectos Terminados: {projectsTerminado}</p>
 
                         <h2 className="subtitle">Proyectos por Prioridad</h2>
                         <PieChart width={400} height={300}>
