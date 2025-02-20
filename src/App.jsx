@@ -11,6 +11,7 @@ import AddActividad from './components/AddActividad/AddActividad'
 import EditProject from './components/EditProject/EditProject'
 import EditActividad from './components/EditActividad/EditActividad'
 import Footer from './components/Footer/Footer'
+import ActivitiesPage from './pages/ActivitiesPage/ActivitiesPage'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/activities" element={<ActivitiesPage/>} />
         <Route path="/projects/:projectId" element={<DetailsProjectList />} />
         <Route path="/projects/addProject" element={<AddProject/>} />
         <Route path="/projects/:projectId/addActividad" element={<AddActividad/>} />

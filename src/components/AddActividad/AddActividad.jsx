@@ -40,7 +40,7 @@ export default function AddActividad() {
                     <option value="En Proceso">En Proceso</option>
                     <option value="Terminado">Terminado</option>
                 </select>
-                <textarea name="description" placeholder="Project Description" value={descripcion} onChange={handleDescripcionInput} required />
+                <textarea name="description" placeholder="Activity Description" value={descripcion} onChange={handleDescripcionInput} required />
             </div>
 
             <button type="submit">Submit</button>

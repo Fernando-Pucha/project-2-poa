@@ -1,5 +1,5 @@
 import './ProjectsPage.css'
-import ProjectsList from '../../components/ProductList/ProjectsList';
+import ProjectsList from '../../components/ProjectsList/ProjectsList';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
