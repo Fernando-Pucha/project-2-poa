@@ -41,6 +41,17 @@
     display: flex;
     justify-content: center;
 }
+.column:nth-child(1) {
+    border: 8px solid #303A63;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.column:nth-child(2) {
+    border: 8px solid #303A63;
+    padding: 16px;
+    border-radius: 8px;
+}
 
 @media (max-width: 768px) {
     .flex-container {

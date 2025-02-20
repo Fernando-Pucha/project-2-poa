@@ -44,8 +44,21 @@
 }
 
 .Encabezado p {
-    margin: 0; 
     font-size: 16px; 
     font-weight: bold; 
     color: white;
+}
+
+.FiltroEstado {
+    display: flex;
+}
+
+.FiltroEstado label{
+    font-size: 16px; 
+    font-weight: bold; 
+    color: white;
+}
+.FiltroEstadoSelect{
+    margin:0;
+    height: 40px;
 }
